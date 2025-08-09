@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3D Edison Navigation</title>
+  <style>
+    /* Embed Roboto directly */
+    @font-face {
+      font-family: "Roboto";
+      src: url("Roboto-Regular.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body { 
+      margin: 0; 
+      overflow: hidden; 
+      font-family: Roboto, sans-serif; 
+    }
+
+    .label {
+      color: #000;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2px 5px;
+      font-size: 14px;
+      border-radius: 3px;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    #controls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <label>From:
+      <select id="source-select">
+        <option value="gate">Gate</option>
+        <option value="Lift">Lift</option>
+        <option value="Electrical Room">Electrical Room</option>
+        <option value="Soil Lab">Soil Lab</option>
+        <option value="CNC Mech Lab">CNC Mech Lab</option>
+        <option value="Survey Lab">Survey Lab</option>
+        <option value="Emergency Entry">Emergency Entry</option>
+      </select>
+    </label>
+
+    <label>To:
+      <select id="destination-select">
+        <option value="Emergency Entry">Emergency Entry</option>
+        <option value="Lift">Lift</option>
+        <option value="Electrical Room">Electrical Room</option>
+        <option value="Soil Lab">Soil Lab</option>
+        <option value="CNC Mech Lab">CNC Mech Lab</option>
+        <option value="Survey Lab">Survey Lab</option>
+        <option value="gate">Gate</option>
+      </select>
+    </label>
+    <button onclick="navigate()">Navigate</button>
+    <button onclick="enableOrientationTracking()">Enable Compass</button>
+    <button onclick="exportSceneToGLB()">Export to GLB</button>
+  </div>
+
+  <!-- Local module imports -->
+  <!-- Ensure main.js exists in the same directory or update the path below if needed --> 
+  <script type="module" src="main.js"></script>
+</body>
+</html>
